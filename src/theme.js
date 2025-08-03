@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/system";
+import { createTheme } from "@mui/material/styles";
 import { createContext, useState, useMemo } from "react";
 
 export const tokens = (mode) => ({
@@ -19,7 +19,7 @@ export const tokens = (mode) => ({
           100: "#d0d1d5",
           200: "#a1a4ab",
           300: "#727681",
-          400: "#f2f0f0",
+          400: "#1F2A40",
           500: "#141b2d",
           600: "#101624",
           700: "#0c101b",
@@ -157,39 +157,39 @@ export const themeSettings = (mode) => {
               default: "#fcfcfc",
             },
           }),
-      typography: {
+    },
+    typography: {
+      fontFamily: ["Poppins", "sans-serif"].join(","),
+      fontSize: 12,
+      h1: {
         fontFamily: ["Poppins", "sans-serif"].join(","),
-        fontSize: 12,
-        h1: {
-          fontFamily: ["Poppins", "sans-serif"].join(","),
-          fontSize: 40,
-        },
-        h2: {
-          fontFamily: ["Poppins", "sans-serif"].join(","),
-          fontSize: 32,
-        },
-        h3: {
-          fontFamily: ["Poppins", "sans-serif"].join(","),
-          fontSize: 24,
-        },
-        h4: {
-          fontFamily: ["Poppins", "sans-serif"].join(","),
-          fontSize: 20,
-        },
-        h5: {
-          fontFamily: ["Poppins", "sans-serif"].join(","),
-          fontSize: 16,
-        },
-        h6: {
-          fontFamily: ["Poppins", "sans-serif"].join(","),
-          fontSize: 14,
-        },
+        fontSize: 40,
+      },
+      h2: {
+        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontSize: 32,
+      },
+      h3: {
+        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontSize: 20,
+      },
+      h5: {
+        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontSize: 16,
+      },
+      h6: {
+        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontSize: 14,
       },
     },
   };
 };
 
-export const ColorModeContext = createContext({});
+export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 export const useMode = () => {
   const [mode, setMode] = useState("dark");
@@ -199,9 +199,10 @@ export const useMode = () => {
         setMode((prev) => (prev == "dark" ? "light" : "dark")),
     };
   }, []);
-  // returns an object with the colors for the theme mode passed stored on theme
+  // returns an object with the props for the theme mode passed stored on theme variable
+  // on any other file we can access it with MUI inbuilt hook theme = useTheme()
   const theme = useMemo(() => {
-    createTheme(themeSettings(mode));
+    return createTheme(themeSettings(mode));
   }, [mode]);
 
   return [theme, colorMode];
