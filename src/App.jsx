@@ -11,7 +11,6 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <ProSidebarProvider>
         <div className="app">
           <main className="content">
             <BrowserRouter>
@@ -21,7 +20,6 @@ function App() {
             </BrowserRouter>
           </main>
         </div>
-        </ProSidebarProvider>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

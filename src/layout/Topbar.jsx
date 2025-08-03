@@ -13,8 +13,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const  colorMode  = useContext(ColorModeContext);
-
+  const colorMode = useContext(ColorModeContext);
 
   return (
     <Box
@@ -25,7 +24,7 @@ const Topbar = () => {
         mb: 2,
       }}
     >
-      <Box>
+      <Box sx={{ backgroundColor: colors.primary[400], pl: 2 }}>
         <InputBase placeholder="Search"></InputBase>
         <IconButton>
           <SearchOutlinedIcon />
