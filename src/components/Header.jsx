@@ -6,7 +6,7 @@ const Header = ({ title, desc }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
-    <Box>
+    <Box marginBottom={"22px"}>
       <Typography
         sx={{
           textTransform: "capitalize",
