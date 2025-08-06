@@ -11,6 +11,9 @@ import Invoices from "./pages/Invoices/Invoices";
 import ProfileForm from "./pages/ProfileForm/ProfileForm";
 import { Calendar } from "@fullcalendar/core/index.js";
 import CalendarPage from "./pages/Calendar/Calendar";
+import FAQ from "./pages/FAQPage/FAQ";
+import BarChart from "./components/BarChart";
+import BarChartPage from "./pages/BarChartPage/BarChartPage";
 function App() {
   const [theme, colorMode] = useMode();
   return (
@@ -27,8 +30,9 @@ function App() {
                 <Route path="/contacts" element={<Contacts />}></Route>
                 <Route path="/invoices" element={<Invoices />}></Route>
                 <Route path="/profile" element={<ProfileForm/>}></Route>
-                <Route path="/calendar" element={<CalendarPage/>}></Route>
-               
+                {/* <Route path="/calendar" element={<CalendarPage/>}></Route> */}
+                <Route path="/faq" element={<FAQ/>}></Route>
+                <Route path="/barchart" element={<BarChartPage/>}></Route>
               </Routes>
             </BrowserRouter>
           </main>

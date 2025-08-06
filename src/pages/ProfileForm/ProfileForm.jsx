@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 
 const ProfileForm = () => {
   return (
-    <Layout>x
+    <Layout>
       <Header title="CREATE USER" desc="Create a New User Profile"></Header>
       <Form />
     </Layout>

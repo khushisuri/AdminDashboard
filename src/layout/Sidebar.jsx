@@ -194,7 +194,7 @@ const SidebarComp = () => {
           </Typography>
           <Item
             title="Bar Chart"
-            to="/bar"
+            to="/barchart"
             icon={<SignalCellularAltOutlinedIcon />}
             selected={selected}
             setIsSelected={setIsSelected}
