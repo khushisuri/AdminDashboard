@@ -201,21 +201,21 @@ const SidebarComp = () => {
           />
           <Item
             title="Pie Chart"
-            to="/pie"
+            to="/piechart"
             icon={<DonutLargeOutlinedIcon />}
             selected={selected}
             setIsSelected={setIsSelected}
           />
           <Item
             title="Line Chart"
-            to="/line"
+            to="/linechart"
             icon={<LinearScaleOutlinedIcon />}
             selected={selected}
             setIsSelected={setIsSelected}
           />
           <Item
             title="Geography"
-            to="/geography"
+            to="/geographychart"
             icon={<RoomOutlinedIcon />}
             selected={selected}
             setIsSelected={setIsSelected}
