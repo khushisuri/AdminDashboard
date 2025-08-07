@@ -76,7 +76,10 @@ const Team = () => {
       <Header title="TEAM" desc="Managing the team members"></Header>
       <Box
         sx={{
-          height: 600,
+          display:"flex",
+          flexGrow: 1,
+          flexShrink: 1,
+          minheight: 600,
           width: "100%",
           "& . MuiDataGrid-cell": { justifyContent: "center" },
           "& .MuiDataGrid-columnHeader": {
