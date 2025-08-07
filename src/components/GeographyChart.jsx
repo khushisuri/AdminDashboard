@@ -5,7 +5,7 @@ import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
 import { geoFeatures } from "../data/mockGeoFeatures";
 
-const GeographyChart = ({isDashboard = false})=> {
+const GeographyChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = useMemo(
     () => tokens(theme.palette.mode),
@@ -62,13 +62,13 @@ const GeographyChart = ({isDashboard = false})=> {
               itemWidth: 94,
               itemHeight: 18,
               itemDirection: "left-to-right",
-              itemTextColor: "#444444",
+              itemTextColor: colors.gray[200],
               itemOpacity: 0.85,
               symbolSize: 18,
             },
           ]
         : undefined,
-    [isDashboard]
+    [isDashboard,theme]
   );
   return (
     <ResponsiveChoropleth /* or Choropleth for fixed dimensions */
