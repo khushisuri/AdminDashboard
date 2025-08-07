@@ -171,13 +171,13 @@ const SidebarComp = () => {
             selected={selected}
             setIsSelected={setIsSelected}
           />
-          <Item
+          {/* <Item
             title="Calendar"
             to="/calendar"
             icon={<CalendarMonthOutlinedIcon />}
             selected={selected}
             setIsSelected={setIsSelected}
-          />
+          /> */}
           <Item
             title="FAQ Page"
             to="/faq"
