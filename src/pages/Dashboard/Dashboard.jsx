@@ -212,12 +212,12 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          padding={"22px"}
+          padding={"12px"}
         >
           <Typography padding={"10px"} fontWeight={600}>
             Sales Quantity
           </Typography>
-          <Box height={"200px"} overflow={"auto"}>
+          <Box height={"200px"}  width="100%" >
             <BarChart isDashboard={true} />
           </Box>
         </Box>
@@ -230,7 +230,7 @@ const Dashboard = () => {
           <Typography padding={"10px"} fontWeight={600}>
             Geography based traffic
           </Typography>
-          <Box height={"200px"} overflow={"auto"}>
+          <Box height={"200px"} width={"100%"} overflow={"auto"}>
             <GeographyChart isDashboard={true} />
           </Box>
         </Box>

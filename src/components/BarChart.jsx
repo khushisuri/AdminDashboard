@@ -4,12 +4,12 @@ import { mockBarData } from "../data/mockData";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
 
-const BarChart = () => {
+const BarChart = ({isDashboard=false}) => {
   const theme = useTheme();
   const colors = useMemo(() => tokens(theme.palette.mode), [theme.palette.mode]);
   const data = useMemo(() => mockBarData, []);
 
-  const legends = useMemo(() => [
+  const legends = useMemo(() => !isDashboard?[
     {
       dataFrom: "keys",
       anchor: "bottom-right",
@@ -19,7 +19,7 @@ const BarChart = () => {
       itemWidth: 100,
       itemHeight: 16,
     },
-  ], []);
+  ]:undefined, [isDashboard]);
 
   const nivoTheme = useMemo(() => ({
     axis: {
@@ -41,7 +41,7 @@ const BarChart = () => {
   }), [colors.gray]);
 
   return (
-    <div style={{ height: "75vh"}}>
+    <div style={{ height: isDashboard ? '100%' : '75vh', width: '100%' }}>
       <ResponsiveBar
         data={data}
         theme={nivoTheme}
