@@ -25,7 +25,7 @@ const FAQ = () => {
             <AccordionSummary
               expandIcon={<ExpandMoreOutlinedIcon />}
               sx={{
-                backgroundColor: colors.gray[700],
+                backgroundColor: colors.gray[900],
                 color: colors.greenAccent[600],
                 fontSize: "16px",
                 fontWeight: "bold",
@@ -33,7 +33,7 @@ const FAQ = () => {
             >
               Question 1
             </AccordionSummary>
-            <AccordionDetails sx={{ backgroundColor: colors.gray[600] }}>
+            <AccordionDetails sx={{ backgroundColor: colors.gray[800] }}>
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual
               mockups.
@@ -43,7 +43,7 @@ const FAQ = () => {
             <AccordionSummary
               expandIcon={<ExpandMoreOutlinedIcon />}
               sx={{
-                backgroundColor: colors.gray[700],
+                backgroundColor: colors.gray[900],
                 color: colors.greenAccent[600],
                 fontSize: "16px",
                 fontWeight: "bold",
@@ -51,7 +51,7 @@ const FAQ = () => {
             >
               Question 2
             </AccordionSummary>
-            <AccordionDetails sx={{ backgroundColor: colors.gray[600] }}>
+            <AccordionDetails sx={{ backgroundColor: colors.gray[800] }}>
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual
               mockups.
@@ -61,7 +61,7 @@ const FAQ = () => {
             <AccordionSummary
               expandIcon={<ExpandMoreOutlinedIcon />}
               sx={{
-                backgroundColor: colors.gray[700],
+                backgroundColor: colors.gray[900],
                 color: colors.greenAccent[600],
                 fontSize: "16px",
                 fontWeight: "bold",
@@ -69,7 +69,7 @@ const FAQ = () => {
             >
               Question 3
             </AccordionSummary>
-            <AccordionDetails sx={{ backgroundColor: colors.gray[600] }}>
+            <AccordionDetails sx={{ backgroundColor: colors.gray[800] }}>
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual
               mockups.
@@ -79,7 +79,7 @@ const FAQ = () => {
             <AccordionSummary
               expandIcon={<ExpandMoreOutlinedIcon />}
               sx={{
-                backgroundColor: colors.gray[700],
+                backgroundColor: colors.gray[900],
                 color: colors.greenAccent[600],
                 fontSize: "16px",
                 fontWeight: "bold",
@@ -87,7 +87,7 @@ const FAQ = () => {
             >
               Question 4
             </AccordionSummary>
-            <AccordionDetails sx={{ backgroundColor: colors.gray[600] }}>
+            <AccordionDetails sx={{ backgroundColor: colors.gray[800] }}>
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual
               mockups.
@@ -97,7 +97,7 @@ const FAQ = () => {
             <AccordionSummary
               expandIcon={<ExpandMoreOutlinedIcon />}
               sx={{
-                backgroundColor: colors.gray[700],
+                backgroundColor: colors.gray[900],
                 color: colors.greenAccent[600],
                 fontSize: "16px",
                 fontWeight: "bold",
@@ -105,7 +105,7 @@ const FAQ = () => {
             >
               Question 5
             </AccordionSummary>
-            <AccordionDetails sx={{ backgroundColor: colors.gray[600] }}>
+            <AccordionDetails sx={{ backgroundColor: colors.gray[800] }}>
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual
               mockups.
@@ -115,7 +115,7 @@ const FAQ = () => {
             <AccordionSummary
               expandIcon={<ExpandMoreOutlinedIcon />}
               sx={{
-                backgroundColor: colors.gray[700],
+                backgroundColor: colors.gray[900],
                 color: colors.greenAccent[600],
                 fontSize: "16px",
                 fontWeight: "bold",
@@ -123,7 +123,7 @@ const FAQ = () => {
             >
               Question 6
             </AccordionSummary>
-            <AccordionDetails sx={{ backgroundColor: colors.gray[600] }}>
+            <AccordionDetails sx={{ backgroundColor: colors.gray[800] }}>
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual
               mockups.

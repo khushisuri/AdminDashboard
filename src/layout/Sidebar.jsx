@@ -46,7 +46,7 @@ const SidebarComp = () => {
         "& .ps-menu-root": {
           background: colors.primary[400],
           height: "100vh",
-          color: theme.palette.mode == "dark" ? "#fcfcfc" : colors.primary[900],
+          color: colors.primary[100],
         },
         "& .ps-menu-button:hover": {
           backgroundColor: `${colors.blueAccent[400]} !important`,
@@ -68,10 +68,7 @@ const SidebarComp = () => {
             {!isCollapsed && <Typography variant="p">ADMIN</Typography>}
             <IconButton
               sx={{
-                color:
-                  theme.palette.mode == "dark"
-                    ? "#fcfcfc"
-                    : colors.primary[900],
+                color: colors.primary[100],
               }}
             >
               <MenuOutlinedIcon />
@@ -130,7 +127,7 @@ const SidebarComp = () => {
           />
           <Typography
             variant="h6"
-            color={colors.gray[300]}
+            color={colors.primary[200]}
             sx={{ m: "15px 0 5px 20px" }}
           >
             Data
@@ -159,7 +156,7 @@ const SidebarComp = () => {
 
           <Typography
             variant="h6"
-            color={colors.gray[300]}
+            color={colors.primary[200]}
             sx={{ m: "15px 0 5px 20px" }}
           >
             Pages
@@ -187,7 +184,7 @@ const SidebarComp = () => {
           />
           <Typography
             variant="h6"
-            color={colors.gray[300]}
+            color={colors.primary[200]}
             sx={{ m: "15px 0 5px 20px" }}
           >
             Charts

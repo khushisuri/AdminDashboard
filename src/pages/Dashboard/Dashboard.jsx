@@ -15,10 +15,10 @@ import ProgressCircle from "../../components/ProgressCircle";
 import BarChart from "../../components/BarChart";
 import GeographyChart from "../../components/GeographyChart";
 
+
 const Dashboard = () => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-
+  const colors = tokens(theme.palette.mode); 
   return (
     <Layout>
       <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -34,8 +34,7 @@ const Dashboard = () => {
               padding: "10px 20px",
             }}
           >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
+            Contact Us
           </Button>
         </Box>
       </Box>
@@ -164,7 +163,7 @@ const Dashboard = () => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 padding: "10px",
-                borderBottom: `6px solid ${colors.primary[500]}`,
+                borderBottom: `6px solid ${colors.primary[800]}`,
               }}
             >
               <Box>

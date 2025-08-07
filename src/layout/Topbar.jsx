@@ -38,7 +38,7 @@ const Topbar = () => {
             <DarkModeOutlinedIcon />
           )}
         </IconButton>
-        <IconButton>
+        {/* <IconButton>
           <NotificationsNoneOutlinedIcon />
         </IconButton>
         <IconButton>
@@ -46,7 +46,7 @@ const Topbar = () => {
         </IconButton>
         <IconButton>
           <PersonOutlineOutlinedIcon />
-        </IconButton>
+        </IconButton> */}
       </Box>
     </Box>
   );

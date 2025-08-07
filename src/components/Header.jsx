@@ -11,7 +11,7 @@ const Header = ({ title, desc }) => {
         sx={{
           textTransform: "capitalize",
           fontWeight: "bold",
-          color: "#fcfcfc",
+          color: colors.gray[100],
         }}
         variant="h1"
       >
