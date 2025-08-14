@@ -4,6 +4,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import React from "react";
 import { tokens } from "../../theme";
@@ -14,10 +15,10 @@ import Layout from "../../layout/Layout";
 const FAQ = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
+  const isSmallScreen = useMediaQuery("(max-width:900px)")
   return (
     <Layout>
-      <Box width="60%" margin="auto">
+      <Box width={isSmallScreen?"90%":"60%"} margin="auto">
         <Header title="FAQs" desc="FAQ Page List"></Header>
 
         <Box sx={{ overflowY: "scroll", height: "75vh" }}>

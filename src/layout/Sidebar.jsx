@@ -1,4 +1,10 @@
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
@@ -22,6 +28,7 @@ const SidebarComp = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setIsSelected] = useState("Dashboard");
+  const isSmallScreen = useMediaQuery("(max-width:900px)");
 
   const Item = ({ title, to, icon, selected, setIsSelected }) => {
     console.log(selected, title);
@@ -42,7 +49,7 @@ const SidebarComp = () => {
     <Box
       sx={{
         "& .ps-sidebar-container": { background: colors.primary[400] },
-        "& .ps-sidebar-root": { border: 0 },
+        "& .ps-sidebar-root": { border: 0, height: "100%" },
         "& .ps-menu-root": {
           background: colors.primary[400],
           height: "100vh",
@@ -53,28 +60,30 @@ const SidebarComp = () => {
         },
       }}
     >
-      <Sidebar collapsed={isCollapsed}>
+      <Sidebar collapsed={isSmallScreen ? true : isCollapsed}>
         <Menu>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "20px",
-              cursor: "pointer",
-            }}
-            onClick={() => setIsCollapsed((prev) => !prev)}
-          >
-            {!isCollapsed && <Typography variant="p">ADMIN</Typography>}
-            <IconButton
+          {!isSmallScreen && (
+            <Box
               sx={{
-                color: colors.primary[100],
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "20px",
+                cursor: "pointer",
               }}
+              onClick={() => setIsCollapsed((prev) => !prev)}
             >
-              <MenuOutlinedIcon />
-            </IconButton>
-          </Box>
-          {!isCollapsed && (
+              {!isCollapsed && <Typography variant="p">ADMIN</Typography>}
+              <IconButton
+                sx={{
+                  color: colors.primary[100],
+                }}
+              >
+                <MenuOutlinedIcon />
+              </IconButton>
+            </Box>
+          )}
+          {!isCollapsed && !isSmallScreen && (
             <Box
               sx={{
                 display: "flex",

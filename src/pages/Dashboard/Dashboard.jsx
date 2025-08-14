@@ -14,14 +14,62 @@ import { mockTransactions } from "../../data/mockData";
 import ProgressCircle from "../../components/ProgressCircle";
 import BarChart from "../../components/BarChart";
 import GeographyChart from "../../components/GeographyChart";
-
+import { useMediaQuery } from "@mui/material";
 
 const Dashboard = () => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode); 
+  const colors = tokens(theme.palette.mode);
+  const isSmallScreen = useMediaQuery("(max-width:900px)");
+  const girdValuesbigScreens = `"a a a b b b c c c d d d"
+  "a a a b b b c c c d d d"
+  "a a a b b b c c c d d d"
+  "e e e e e e e e f f f f"
+  "e e e e e e e e f f f f"
+  "e e e e e e e e f f f f"
+  "e e e e e e e e f f f f"
+  "e e e e e e e e f f f f"
+  "g g g g h h h h i i i i"
+  "g g g g h h h h i i i i"
+  "g g g g h h h h i i i i"
+  "g g g g h h h h i i i i"
+  `;
+
+  const girdValuesSmallScreens = `
+  "a"
+  "a"
+  "b"
+  "b"
+  "c"
+  "c"
+  "d"
+  "d"
+  "e"
+  "e"
+  "e"
+  "e"
+  "f"
+  "f"
+  "f"
+  "f"
+  "g"
+  "g"
+  "g"
+  "h"
+  "h"
+  "h"
+  "i"
+  "i"
+  "i"
+  `;
   return (
     <Layout>
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        flexDirection={isSmallScreen ? "column" : "row"}
+        mb="1rem"
+      >
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
 
         <Box>
@@ -39,15 +87,30 @@ const Dashboard = () => {
         </Box>
       </Box>
       <Box
-        display="grid"
-        gridTemplateColumns="repeat(12,1fr)"
-        gridAutoRows="140px"
-        gap="20px"
-        height={"80vh"}
-        overflow={"auto"}
+        sx={
+          isSmallScreen
+            ? {
+                display: "grid",
+                gap: "20px",
+                height: "80vh",
+                overflow: "auto",
+                gridTemplateAreas: girdValuesSmallScreens,
+                gridAutoColumns: "1fr",
+                gridAutoRows: "80px",
+              }
+            : {
+                display: "grid",
+                gap: "20px",
+                height: "80vh",
+                overflow: "auto",
+                gridTemplateAreas: girdValuesbigScreens,
+                gridTemplateColumns: "repeat(12,minmax(50px,1fr))",
+                gridTemplateRows: "repeat(12,minmax(50px,1fr))",
+              }
+        }
       >
         <Box
-          gridColumn="span 3"
+          gridArea="a"
           bgcolor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -66,7 +129,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 3"
+          gridArea="b"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -85,7 +148,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 3"
+          gridArea="c"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -104,7 +167,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 3"
+          gridArea="d"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -123,8 +186,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 8"
-          gridRow="span 2"
+          gridArea="e"
           backgroundColor={colors.primary[400]}
           padding={"25px"}
         >
@@ -147,12 +209,7 @@ const Dashboard = () => {
             <LineChart isDashboard={true} />
           </Box>
         </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          overflow="auto"
-        >
+        <Box gridArea="f" backgroundColor={colors.primary[400]} overflow="auto">
           <Typography padding={"10px"} fontWeight={600}>
             Recent Transactions
           </Typography>
@@ -186,8 +243,7 @@ const Dashboard = () => {
           ))}
         </Box>
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridArea="g"
           backgroundColor={colors.primary[400]}
           padding={"22px"}
         >
@@ -208,21 +264,19 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridArea="h"
           backgroundColor={colors.primary[400]}
           padding={"12px"}
         >
           <Typography padding={"10px"} fontWeight={600}>
             Sales Quantity
           </Typography>
-          <Box height={"200px"}  width="100%" >
+          <Box height={"200px"} width="100%">
             <BarChart isDashboard={true} />
           </Box>
         </Box>
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridArea="i"
           backgroundColor={colors.primary[400]}
           padding={"22px"}
         >
