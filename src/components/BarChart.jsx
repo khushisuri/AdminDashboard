@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { ResponsiveBar } from "@nivo/bar";
 import { mockBarData } from "../data/mockData";
 import { tokens } from "../theme";
-import { useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 
 const BarChart = ({isDashboard=false}) => {
   const theme = useTheme();
@@ -41,7 +41,16 @@ const BarChart = ({isDashboard=false}) => {
   }), [colors.gray]);
 
   return (
-    <div style={{ height: isDashboard ? '100%' : '75vh', width: '100%' }}>
+     <Box
+      sx={{
+        minwidth: "350px",
+        overflow:"hidden",
+        width:isDashboard?"350px":"100%",
+        height: isDashboard ? "100%" : "70vh",
+        flex: 1,
+        minWidth: 0,
+      }}
+    >
       <ResponsiveBar
         data={data}
         theme={nivoTheme}
@@ -55,7 +64,7 @@ const BarChart = ({isDashboard=false}) => {
         axisLeft={{ legend: "food", legendOffset: -40 }}
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       />
-    </div>
+    </Box>
   );
 };
 

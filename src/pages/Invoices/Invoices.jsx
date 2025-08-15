@@ -12,16 +12,15 @@ const Invoices = () => {
   const colors = tokens(theme.palette.mode);
 
   const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "id", headerName: "ID",
+      flex: 1, },
     {
       field: "name",
       headerName: "Name",
-      flex: 1,
     },
     {
       field: "email",
       headerName: "Email",
-      flex: 1,
     },
     {
       field: "cost",

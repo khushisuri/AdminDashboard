@@ -12,7 +12,8 @@ const Contacts = () => {
   const colors = tokens(theme.palette.mode);
 
   const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "id", headerName: "ID",
+      flex: 1, },
     { field: "registrarId", headerName: "REGISTRAR ID" },
     {
       field: "name",
