@@ -6,17 +6,19 @@ import { tokens } from "../../theme";
 import Layout from "../../layout/Layout";
 import Header from "../../components/Header";
 import { Box, Typography } from "@mui/material";
+import {useMediaQuery} from "@mui/material";
 
 const Invoices = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isSmallScreen = useMediaQuery("(max-width(900px)");
 
   const columns = [
-    { field: "id", headerName: "ID",
-      flex: 1, },
+    { field: "id", headerName: "ID", flex: isSmallScreen ? 0 : 1},
     {
       field: "name",
       headerName: "Name",
+      flex:1 ,
     },
     {
       field: "email",
@@ -34,7 +36,7 @@ const Invoices = () => {
             sx={{
               display: "flex",
               alignItems: "center",
-              m:"15px 0px"
+              m: "15px 0px",
             }}
           >
             {row.cost}
@@ -68,15 +70,15 @@ const Invoices = () => {
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: colors.blueAccent[600],
           },
-          "& .MuiCheckbox-root ":{
-            color:colors.greenAccent[600]
+          "& .MuiCheckbox-root ": {
+            color: colors.greenAccent[600],
           },
-          "& .Mui-checked":{
-            color:`${colors.greenAccent[600]} !important`
-          }
+          "& .Mui-checked": {
+            color: `${colors.greenAccent[600]} !important`,
+          },
         }}
       >
-        <DataGrid rows={mockDataInvoices} columns={columns} checkboxSelection/>
+        <DataGrid rows={mockDataInvoices} columns={columns} checkboxSelection />
       </Box>
     </Layout>
   );

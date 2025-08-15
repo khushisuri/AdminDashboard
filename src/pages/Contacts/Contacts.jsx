@@ -6,14 +6,16 @@ import { tokens } from "../../theme";
 import Layout from "../../layout/Layout";
 import Header from "../../components/Header";
 import { Box, Typography } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 
 const Contacts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isSmallScreen = useMediaQuery("(max-width(900px)");
 
   const columns = [
     { field: "id", headerName: "ID",
-      flex: 1, },
+       flex: isSmallScreen ? 0 : 1 },
     { field: "registrarId", headerName: "REGISTRAR ID" },
     {
       field: "name",

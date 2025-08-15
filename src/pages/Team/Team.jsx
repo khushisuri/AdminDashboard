@@ -9,18 +9,20 @@ import { tokens } from "../../theme";
 import Layout from "../../layout/Layout";
 import Header from "../../components/Header";
 import { Box, Typography } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isSmallScreen = useMediaQuery("(max-width(900px)");
 
   const columns = [
-    { field: "id", headerName: "ID" ,
-      flex: 1,},
+    { field: "id", headerName: "ID", flex: isSmallScreen ? 0 : 1 },
     {
       field: "name",
       headerName: "Name",
       cellClassName: "name-column--cell",
+      flex: 1,
     },
     {
       field: "age",
@@ -76,7 +78,7 @@ const Team = () => {
       <Header title="TEAM" desc="Managing the team members"></Header>
       <Box
         sx={{
-          display:"flex",
+          display: "flex",
           flexGrow: 1,
           flexShrink: 1,
           minheight: 600,
