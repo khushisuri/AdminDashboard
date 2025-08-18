@@ -4,7 +4,7 @@ import { mockLineData, mockPieData } from "../data/mockData";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
 
-const LineChart = ({isDashboard= false}) => {
+const LineChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = useMemo(
     () => tokens(theme.palette.mode),
@@ -12,52 +12,55 @@ const LineChart = ({isDashboard= false}) => {
   );
   const data = useMemo(() => mockLineData, []);
   const nivoTheme = useMemo(
-    () =>
-      ({
-        axis: {
-          domain: {
-            line: {
-              stroke: colors.gray[100],
-            },
-          },
-          legend: {
-            text: {
-              fill: colors.gray[100],
-            },
-          },
-          ticks: {
-            line: {
-              stroke: colors.gray[100],
-              strokeWidth: 1,
-            },
-            text: {
-              fill: colors.gray[100],
-            },
+    () => ({
+      axis: {
+        domain: {
+          line: {
+            stroke: colors.gray[100],
           },
         },
-        legends: {
+        legend: {
           text: {
             fill: colors.gray[100],
           },
         },
-        tooltip: {
-          container: {
-            color: colors.primary[500],
+        ticks: {
+          line: {
+            stroke: colors.gray[100],
+            strokeWidth: 1,
+          },
+          text: {
+            fill: colors.gray[100],
           },
         },
-      }),[colors]
+      },
+      legends: {
+        text: {
+          fill: colors.gray[100],
+        },
+      },
+      tooltip: {
+        container: {
+          color: colors.primary[500],
+        },
+      },
+    }),
+    [colors]
   );
   const legends = useMemo(
-    () => [
-      {
-        anchor: "bottom-right",
-        direction: "column",
-        translateX: 100,
-        itemWidth: 80,
-        itemHeight: 22,
-        symbolShape: "circle",
-      },
-    ],
+    () =>
+      isDashboard
+        ? undefined
+        : [
+            {
+              anchor: "bottom-right",
+              direction: "column",
+              translateX: 100,
+              itemWidth: 80,
+              itemHeight: 22,
+              symbolShape: "circle",
+            },
+          ],
     []
   );
   return (
@@ -72,7 +75,7 @@ const LineChart = ({isDashboard= false}) => {
         reverse: false,
       }}
       theme={nivoTheme}
-       colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} 
+      colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }}
       curve="catmullRom"
       axisBottom={{ legend: "transportation", legendOffset: 36 }}
       axisLeft={{ legend: "count", legendOffset: -40 }}

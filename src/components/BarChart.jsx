@@ -3,12 +3,13 @@ import { ResponsiveBar } from "@nivo/bar";
 import { mockBarData } from "../data/mockData";
 import { tokens } from "../theme";
 import { Box, useTheme } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 
 const BarChart = ({isDashboard=false}) => {
   const theme = useTheme();
   const colors = useMemo(() => tokens(theme.palette.mode), [theme.palette.mode]);
   const data = useMemo(() => mockBarData, []);
-
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
   const legends = useMemo(() => !isDashboard?[
     {
       dataFrom: "keys",
@@ -43,9 +44,7 @@ const BarChart = ({isDashboard=false}) => {
   return (
      <Box
       sx={{
-        minwidth: "350px",
-        overflow:"hidden",
-        width:isDashboard?"350px":"100%",
+        width:isSmallScreen && isDashboard ?"350px":"100%",
         height: isDashboard ? "100%" : "70vh",
         flex: 1,
         minWidth: 0,

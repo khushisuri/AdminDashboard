@@ -20,6 +20,8 @@ const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const isSmallScreen = useMediaQuery("(max-width:900px)");
+
+  const isMobileScreen = useMediaQuery("(max-width:600px)");
   const girdValuesbigScreens = `"a a a b b b c c c d d d"
   "a a a b b b c c c d d d"
   "a a a b b b c c c d d d"
@@ -87,13 +89,15 @@ const Dashboard = () => {
         </Box>
       </Box>
       <Box
+        width="100%"
         sx={
           isSmallScreen
             ? {
                 display: "grid",
                 gap: "20px",
                 height: "80vh",
-                overflow: "auto",
+                overflowX: "hidden",
+                overflowY: "auto",
                 gridTemplateAreas: girdValuesSmallScreens,
                 gridAutoColumns: "1fr",
                 gridAutoRows: "80px",
@@ -134,6 +138,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          width="100%"
         >
           <StatBox
             title="431,225"
@@ -153,6 +158,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          width="100%"
         >
           <StatBox
             title="32,441"
@@ -172,6 +178,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          width="100%"
         >
           <StatBox
             title="1,325,134"
@@ -189,6 +196,7 @@ const Dashboard = () => {
           gridArea="e"
           backgroundColor={colors.primary[400]}
           padding={"25px"}
+          width="100%"
         >
           <Box
             sx={{
@@ -205,11 +213,20 @@ const Dashboard = () => {
             </Box>
             <DownloadOutlinedIcon color={colors.greenAccent[400]} />
           </Box>
-          <Box height={"100%"} pb={"20px"}>
+          <Box
+            height={isMobileScreen ? "300px" : "100%"}
+            pb={"20px"}
+            width={isMobileScreen ? "300px" : "auto"}
+          >
             <LineChart isDashboard={true} />
           </Box>
         </Box>
-        <Box gridArea="f" backgroundColor={colors.primary[400]} overflow="auto">
+        <Box
+          gridArea="f"
+          backgroundColor={colors.primary[400]}
+          overflow="auto"
+          width="100%"
+        >
           <Typography padding={"10px"} fontWeight={600}>
             Recent Transactions
           </Typography>
@@ -246,6 +263,7 @@ const Dashboard = () => {
           gridArea="g"
           backgroundColor={colors.primary[400]}
           padding={"22px"}
+          width="100%"
         >
           <Typography padding={"10px"} fontWeight={600}>
             Campaign
@@ -267,6 +285,8 @@ const Dashboard = () => {
           gridArea="h"
           backgroundColor={colors.primary[400]}
           padding={"12px"}
+          width="100%"
+          overflow="hidden"
         >
           <Typography padding={"10px"} fontWeight={600}>
             Sales Quantity
@@ -279,6 +299,7 @@ const Dashboard = () => {
           gridArea="i"
           backgroundColor={colors.primary[400]}
           padding={"22px"}
+          width="100%"
         >
           <Typography padding={"10px"} fontWeight={600}>
             Geography based traffic
