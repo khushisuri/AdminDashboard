@@ -10,7 +10,7 @@ const BarChart = ({isDashboard=false}) => {
   const colors = useMemo(() => tokens(theme.palette.mode), [theme.palette.mode]);
   const data = useMemo(() => mockBarData, []);
   const isSmallScreen = useMediaQuery("(max-width:600px)");
-  const legends = useMemo(() => !isDashboard?[
+  const legends = useMemo(() => !isDashboard || !isSmallScreen ?[
     {
       dataFrom: "keys",
       anchor: "bottom-right",
@@ -20,7 +20,7 @@ const BarChart = ({isDashboard=false}) => {
       itemWidth: 100,
       itemHeight: 16,
     },
-  ]:undefined, [isDashboard]);
+  ]:undefined, [isDashboard,isSmallScreen])
 
   const nivoTheme = useMemo(() => ({
     axis: {

@@ -197,6 +197,7 @@ const Dashboard = () => {
           backgroundColor={colors.primary[400]}
           padding={"25px"}
           width="100%"
+          overflow="hidden"
         >
           <Box
             sx={{
@@ -230,7 +231,7 @@ const Dashboard = () => {
           <Typography padding={"10px"} fontWeight={600}>
             Recent Transactions
           </Typography>
-          {mockTransactions.map((tr) => (
+          {mockTransactions.map((tr, idx) => (
             <Box
               sx={{
                 display: "flex",
@@ -239,6 +240,7 @@ const Dashboard = () => {
                 padding: "10px",
                 borderBottom: `6px solid ${colors.primary[800]}`,
               }}
+              key={`${tr.txId} + ${idx}`}
             >
               <Box>
                 <Typography color={colors.greenAccent[400]} fontWeight={600}>

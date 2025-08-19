@@ -31,7 +31,6 @@ const SidebarComp = () => {
   const isSmallScreen = useMediaQuery("(max-width:900px)");
 
   const Item = ({ title, to, icon, selected, setIsSelected }) => {
-    console.log(selected, title);
 
     return (
       <MenuItem

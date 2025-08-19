@@ -3,6 +3,7 @@ import { ResponsiveLine } from "@nivo/line";
 import { mockLineData, mockPieData } from "../data/mockData";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 
 const LineChart = ({ isDashboard = false }) => {
   const theme = useTheme();
@@ -11,6 +12,7 @@ const LineChart = ({ isDashboard = false }) => {
     [theme.palette.mode]
   );
   const data = useMemo(() => mockLineData, []);
+  const isMobileScreen = useMediaQuery("(max-width:600px)");
   const nivoTheme = useMemo(
     () => ({
       axis: {
@@ -49,7 +51,7 @@ const LineChart = ({ isDashboard = false }) => {
   );
   const legends = useMemo(
     () =>
-      isDashboard
+      isDashboard && isMobileScreen
         ? undefined
         : [
             {
@@ -61,7 +63,7 @@ const LineChart = ({ isDashboard = false }) => {
               symbolShape: "circle",
             },
           ],
-    []
+    [isDashboard,isMobileScreen]
   );
   return (
     <ResponsiveLine /* or Line for fixed dimensions */
