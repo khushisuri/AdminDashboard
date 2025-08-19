@@ -63,7 +63,7 @@ const LineChart = ({ isDashboard = false }) => {
               symbolShape: "circle",
             },
           ],
-    [isDashboard,isMobileScreen]
+    [isDashboard, isMobileScreen]
   );
   return (
     <ResponsiveLine /* or Line for fixed dimensions */
@@ -79,7 +79,11 @@ const LineChart = ({ isDashboard = false }) => {
       theme={nivoTheme}
       colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }}
       curve="catmullRom"
-      axisBottom={{ legend: "transportation", legendOffset: 36 }}
+      axisBottom={{
+        legend: "transportation",
+        legendOffset: 36,
+        format: (value) => (isMobileScreen ? value.slice(0, 1) : value)
+      }}
       axisLeft={{ legend: "count", legendOffset: -40 }}
       enableGridX={false}
       enableGridY={false}
