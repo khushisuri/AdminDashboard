@@ -1,5 +1,5 @@
 
-Live Project Link (https://admin-dashboard-k9e9sf550-khushisuris-projects.vercel.app/)
+Live Project Link (https://admin-dashboard-abg9u1x6f-khushisuris-projects.vercel.app/)
 
 # React + Vite
 
